@@ -14,16 +14,16 @@ const displayWorkoutRoutine = () => {
 
 document.querySelector('#submitWorkout').addEventListener('click', displayWorkoutRoutine);
 
-// ⚠️⚠️⚠️ Lesson 3: Creating and Removing Elements ⚠️⚠️⚠️
-// Function to add new fitness goals and remove completed ones
-// NOW LET'S DEBUG TO PREVENT DUPLICATE GOALS FROM BEING SUBMITTED 🚀
-
 
 const addNewGoal = () => {
     const goalInput = document.querySelector('#goalInput').value;
     const goalList = document.querySelector('#goalList');
     
-    for (let i = 0; i < existingGoals.length; i++)
+    for (let i = 0; i < existingGoals.length; i++) {
+        if (existingGoals[i].textContent.trim() === goalInput) {
+            alert("This goal already exists!");
+            return;
+        }
     // ⚠️ Hint 1: Check for duplicates
     // Use 'goalList' to get all existing goals and check if 'goalInput' matches any of them.
     
@@ -42,11 +42,11 @@ const addNewGoal = () => {
     newGoal.textContent = goalInput;
     goalList.appendChild(newGoal);
 };
+}
 
-// Add event listener to the goal submit button
 document.querySelector('#submitGoal').addEventListener('click', addNewGoal);
 
-///
+
 let waterIntake = 0;
 const updateWaterIntake = (change) => {
     waterIntake += change;
