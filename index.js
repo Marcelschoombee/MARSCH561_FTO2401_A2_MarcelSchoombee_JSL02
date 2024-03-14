@@ -18,9 +18,9 @@ document.querySelector('#submitWorkout').addEventListener('click', displayWorkou
 const addNewGoal = () => {
     const goalInput = document.querySelector('#goalInput').value;
     const goalList = document.querySelector('#goalList');
-    const existingGoals = goalList.querySelectorAll('li')
+    const existingGoals = goalList.querySelectorAll('li') // This checks for duplicates
     for (let i = 0; i < existingGoals.length; i++) {
-        if (existingGoals[i].textContent.trim() === goalInput) {
+        if (existingGoals[i].textContent.trim() === goalInput) { // This tells the user that theres a duplicate
             alert("This goal already exists!");
             return;
         }
